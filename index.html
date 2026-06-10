@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Text Box</title>
+    <title>Input Box</title>
     <style>
         body {
             margin: 0;
@@ -12,21 +12,30 @@
             background: black;
         }
 
-        textarea {
-            width: 500px;
-            height: 300px;
+        input {
+            width: 250px;
+            height: 40px;
             background: white;
             color: black;
             border: none;
-            padding: 15px;
+            text-align: center;
             font-size: 18px;
-            resize: none;
             outline: none;
-            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
-    <textarea placeholder="Type here..."></textarea>
+    <input id="box" type="text" placeholder="Enter text">
+
+    <script>
+        const box = document.getElementById("box");
+
+        box.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                alert("You entered: " + box.value);
+                box.value = "";
+            }
+        });
+    </script>
 </body>
 </html>
